@@ -15,8 +15,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install pyinstaller
-      - run: pyinstaller --onefile --name mango_tagmaker tagmaker/mango_tag.py
+      - run: pyinstaller --onefile --name mango_tagmaker_v2 tagmaker/mango_tag.py
       - uses: actions/upload-artifact@v4
         with:
-          name: mango_tagmaker
-          path: dist/mango_tagmaker.exe
+          name: mango_tagmaker_v2
+          path: dist/mango_tagmaker_v2.exe

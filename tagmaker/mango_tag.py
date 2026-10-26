@@ -17,7 +17,8 @@ def base_dir():
 
 def split_name(filename):
     # BE26A3FRK02_99_06.JPG -> ('BE26A3FRK02_99', '06', '.JPG')
-    stem, ext = os.path.splitext(filename)
+    stem, ext = os.path.splitext(filename.strip())
+    stem = stem.strip()
     if '_' not in stem:
         return None
     code, num = stem.rsplit('_', 1)
@@ -28,7 +29,7 @@ def split_name(filename):
 
 def main():
     print("=" * 50)
-    print("  찐망고의 태그 이름 바꾸기")
+    print("  찐망고의 태그 이름 바꾸기  v2 (번호순)")
     print("=" * 50)
 
     folder = os.path.join(base_dir(), origin_dir)
@@ -37,11 +38,16 @@ def main():
         input("\n엔터 키를 누르면 종료됩니다.")
         return
 
+    all_files = os.listdir(folder)
+    print(f"\n 폴더 위치: {folder}")
+    print(f" 들어있는 파일: {len(all_files)}개")
+
     # 1. 품번별로 묶기
     groups = {}
     skipped = []
-    for f in os.listdir(folder):
-        if not f.lower().endswith(IMG_EXT):
+    for f in all_files:
+        if not f.strip().lower().endswith(IMG_EXT):
+            skipped.append(f)
             continue
         info = split_name(f)
         if info is None:
@@ -66,7 +72,7 @@ def main():
     for old, new in plan:
         print(f"  {old}  ->  {new}")
     if skipped:
-        print("\n 이름 규칙이 안 맞아서 건너뛴 파일 (예: 품번_색상_06.jpg)")
+        print(f"\n 이름 규칙이 안 맞아서 건너뛴 파일 {len(skipped)}개 (예: 품번_색상_06.jpg)")
         for f in skipped:
             print(f"   - {f}")
 

@@ -65,7 +65,7 @@ BE26A3FRK02_99_07.JPG → BE26A3FRK02_99_tag2.JPG
 - 바꾼 기록은 `rename_log.txt`에 남습니다.
 
 exe는 `tagmaker/mango_tag.py`를 수정해서 올리면 GitHub Actions가 자동으로 빌드합니다.
-**Actions 탭 → 최신 "Build tagmaker exe" → 아래 Artifacts의 `mango_tagmaker`** 에서 받으세요.
+**Actions 탭 → 최신 "Build tagmaker exe" → 아래 Artifacts의 `mango_tagmaker_v2`** 에서 받으세요.
 
 ## 파일 구성
 
