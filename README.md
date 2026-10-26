@@ -53,16 +53,15 @@ result/
 
 ## 🏷 태그 이름 바꾸기 — `tagmaker/`
 
-품번마다 마지막에 섞여 있는 태그 이미지를 찾아서 `_tag1`, `_tag2`로 이름을 바꿔줍니다.
+**태그 이미지만** `origin`에 넣으면, 품번마다 번호 작은 순서대로 `_tag1`, `_tag2`로 이름을 바꿔줍니다.
 
 ```
-AFA4QPA5J_BK_09.jpg (바코드 라벨)   → AFA4QPA5J_BK_tag1.jpg
-AFA4QPA5J_BK_10.jpg (주의사항 라벨) → AFA4QPA5J_BK_tag2.jpg
+BE26A3FRK02_99_06.JPG → BE26A3FRK02_99_tag1.JPG
+BE26A3FRK02_99_07.JPG → BE26A3FRK02_99_tag2.JPG
 ```
 
-- 품번마다 **바코드가 찍힌 이미지**를 찾고, 그 이미지부터 끝까지를 태그로 봅니다. (바코드 라벨이 태그 중 먼저 찍혀 있어야 해요)
+- 품번은 마지막 `_숫자` 앞부분 전체입니다.
 - 바꾸기 전에 목록을 먼저 보여주고, 엔터를 눌러야 진행됩니다. (`n` = 취소)
-- 바코드를 못 찾은 품번은 건드리지 않고 따로 알려줍니다.
 - 바꾼 기록은 `rename_log.txt`에 남습니다.
 
 exe는 `tagmaker/mango_tag.py`를 수정해서 올리면 GitHub Actions가 자동으로 빌드합니다.

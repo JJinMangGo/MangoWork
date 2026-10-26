@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install pyinstaller opencv-python-headless numpy
+      - run: pip install pyinstaller
       - run: pyinstaller --onefile --name mango_tagmaker tagmaker/mango_tag.py
       - uses: actions/upload-artifact@v4
         with:
